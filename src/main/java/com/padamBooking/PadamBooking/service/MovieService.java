@@ -6,33 +6,34 @@ import com.padamBooking.PadamBooking.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class MovieService {
-    MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
-    public List<Movie> createMovie(Iterable<Movie> movie){
-        return movieRepository.saveAll(movie);
+    public List<Movie> createMovies(Iterable<Movie> movies) {
+        return movieRepository.saveAll(movies);
     }
 
-    public Movie upadateMovie(Movie movie){
-       return movieRepository.save(movie);
-
+    public Movie updateMovie(Movie movie) {
+        return movieRepository.save(movie);
     }
 
-    public Movie getMovieById(int movieId){
-       return movieRepository.findById(movieId).get();
+    public Movie getMovieById(int movieId) {
+        return movieRepository.findById(movieId)
+                .orElseThrow(() -> new NoSuchElementException("Movie not found with id " + movieId));
     }
 
-    public List<Movie> getAllMovies(){
+    public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
-    public void deleteMovie(int movieId){
+    public void deleteMovieById(int movieId) {
         movieRepository.deleteById(movieId);
     }
 }

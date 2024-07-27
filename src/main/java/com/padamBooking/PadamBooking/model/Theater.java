@@ -1,58 +1,63 @@
 package com.padamBooking.PadamBooking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "theater")
 public class Theater {
     @Id
-    int theaterId;
-    String theaterName;
-    String theaterLocation;
-    int totalScreens;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    public Theater(int theaterId, String theaterName, String theaterLocation, int totalScreens) {
-        this.theaterId = theaterId;
-        this.theaterName = theaterName;
-        this.theaterLocation = theaterLocation;
-        this.totalScreens = totalScreens;
+    private String name;
+    private String location;
+
+    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private Set<Screen> screens = new HashSet<>();
+
+    public Theater(){}
+
+    public Theater(Integer id, String name, String location, Set<Screen> screens) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.screens = screens;
     }
 
-    public Theater() {
+    public Integer getId() {
+        return id;
     }
 
-    public int getTheaterId() {
-        return theaterId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setTheaterId(int theaterId) {
-        this.theaterId = theaterId;
+    public String getName() {
+        return name;
     }
 
-    public String getTheaterName() {
-        return theaterName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTheaterName(String theaterName) {
-        this.theaterName = theaterName;
+    public String getLocation() {
+        return location;
     }
 
-    public String getTheaterLocation() {
-        return theaterLocation;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setTheaterLocation(String theaterLocation) {
-        this.theaterLocation = theaterLocation;
+    public Set<Screen> getScreens() {
+        return screens;
     }
 
-    public int getTotalScreens() {
-        return totalScreens;
+    public void setScreens(Set<Screen> screens) {
+        this.screens = screens;
     }
-
-    public void setTotalScreens(int totalScreens) {
-        this.totalScreens = totalScreens;
-    }
-
 }

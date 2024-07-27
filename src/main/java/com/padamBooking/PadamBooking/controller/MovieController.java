@@ -3,6 +3,9 @@ package com.padamBooking.PadamBooking.controller;
 
 import com.padamBooking.PadamBooking.model.Movie;
 import com.padamBooking.PadamBooking.service.MovieService;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/v1/movie")
 @CrossOrigin(origins = "http://localhost:3000")
 public class MovieController {
-    MovieService movieService;
+    private final MovieService movieService;
 
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
@@ -28,18 +31,23 @@ public class MovieController {
     }
 
     @PostMapping
-    public List<Movie> createMovie(@RequestBody List<Movie> movie){
-        return movieService.createMovie(movie);
+    public List<Movie> createMovies(@RequestBody List<Movie> movies) {
+        return movieService.createMovies(movies);
     }
 
     @PutMapping
-    public Movie updateMovie(@RequestBody Movie movie){
-        return movieService.upadateMovie(movie);
+    public Movie updateMovie(@RequestBody Movie movie) {
+        return movieService.updateMovie(movie);
     }
 
-    @DeleteMapping("deleteMovieById")
-    public String deleteMovie(@RequestParam(name="movieId",required = true) int movieId){
-        movieService.deleteMovie(movieId);
-        return "success";
+
+    @DeleteMapping("/deleteMovieById")
+    public ResponseEntity<String> deleteMovieById(@PathVariable int id) {
+        try {
+            movieService.deleteMovieById(id);
+            return new ResponseEntity<>("Movie deleted successfully", HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
