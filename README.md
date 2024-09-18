@@ -1,13 +1,13 @@
 # Padam Booking
 
-<h1>PadamBooking</h1>
+
 <p>PadamBooking is a full-stack movie ticket booking application that allows users to browse movies, select seats, and book tickets online. The project is built using modern technologies to provide a seamless and responsive user experience.</p>
 
 <h1>Tech Stack</h1>
 <h2>Frontend:</h2>
 <p><b>React.js:</b> A popular JavaScript library for building dynamic and interactive user interfaces.</p>
 <p><b>CSS/Bootstrap:</b> For styling and responsive design.</p>
-<h2>Backend:<h2>
+<h2>Backend:</h2>
 <p><b>Spring Boot:</b> A powerful Java framework that simplifies the development of RESTful APIs.</p>
 <p><b>Java:</b> Core programming language for the backend logic.</p>
 <p><b>MySQL:</b> Relational database used to store user data, movie details, and booking information.</p>
@@ -21,9 +21,9 @@
 <p><b>Payment Integration:</b> (Optional: Mention if you have implemented or plan to implement payment gateway integration.)</p>
 <h2>Installation and Setup</h2>
 <h3>Prerequisites:</h3>
-<p>Node.js (for running React frontend)</p>
-<p>Java and Spring Boot (for backend)</p>
-<p>MySQL (for database)</p>
+<p><b>Node.js</b> (for running React frontend)</p>
+<p><b>Java</b> and <b>Spring Boot</b> (for backend)</p>
+<p><b>MySQL</b> (for database)</p>
 <h2>Steps:</h2>
 <h3>Clone the repository:</h3>
 
@@ -62,6 +62,8 @@
 <p><b>Payment Integration:</b> Plan to integrate payment gateways for real-time payments.</p>
 <p><b>Admin Dashboard:</b> Add an admin panel for managing movies and bookings.</p>
 <p><b>Improved UI/UX:</b> Further enhancements in user interface and experience.</p>
+
+<h1></h1>
 
 ![Home Page](./markdown/home.png)
 ![Theater Page](./markdown/theater.png)
