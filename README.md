@@ -47,8 +47,8 @@
 <b>npm start</b>
 <h2>Access the Application:</h2>
 
-<p>The frontend will be available at <b>http://localhost:3000/.</b></p>
-<p>The backend API will run on <b>http://localhost:8080/.</b></p>
+<p>The frontend will be available at <b>http://localhost:3000</b></p>
+<p>The backend API will run on <b>http://localhost:8080</b></p>
 <h2>Database Structure</h2>
 <h3>Tables:</h3>
 <p><b>movies:</b> Stores movie details.</p>
@@ -63,9 +63,18 @@
 <p><b>Admin Dashboard:</b> Add an admin panel for managing movies and bookings.</p>
 <p><b>Improved UI/UX:</b> Further enhancements in user interface and experience.</p>
 
-<h1></h1>
+<h1>Home Page</h1>
 
 ![Home Page](./markdown/home.png)
+
+<h1>Theater Selecting Page</h2>
+
 ![Theater Page](./markdown/theater.png)
+
+<h1>Seat Selecting Page</h1>
+
 ![Seat Page](./markdown/seat.png)
+
+<h1>Ticket Page</h1>
+
 ![Ticket Page](./markdown/ticket.png)
