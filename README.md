@@ -35,16 +35,16 @@
 <p>Configure the MySQL database connection in application.properties.</p>
 <p>Run the Spring Boot application:</p>
 
-<b>mvn spring-boot:run</b>
+```mvn spring-boot:run```
 
 <h2>Frontend Setup:</h2>
 <p>Navigate to the frontend directory.</p>
 <p>Install dependencies:</p>
 
-<b>npm install</b>
+```npm install```
 <p>Start the React application:</p>
 
-<b>npm start</b>
+```npm start```
 <h2>Access the Application:</h2>
 
 <p>The frontend will be available at <b>http://localhost:3000</b></p>
